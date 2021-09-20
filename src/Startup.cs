@@ -63,7 +63,7 @@ namespace AdvantageTool
 
             services.AddHttpClient();
 
-            services.AddApplicationInsightsTelemetry();
+            //services.AddApplicationInsightsTelemetry();
             services.AddHealthChecks();
 
             // Make AccessTokenService available for dependency injection.

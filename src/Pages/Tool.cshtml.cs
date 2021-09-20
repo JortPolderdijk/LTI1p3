@@ -161,7 +161,8 @@ namespace AdvantageTool.Pages
                 var httpClient = _httpClientFactory.CreateClient();
                 var keySetJson = await httpClient.GetStringAsync(platform.JwkSetUrl);
                 var keySet = JsonConvert.DeserializeObject<JsonWebKeySet>(keySetJson);
-                var key = keySet.Keys.SingleOrDefault(k => k.Kid == jwt.Header.Kid);
+                var key = keySet.Keys.SingleOrDefault(k => k.Kid == jwt.Header.Kid.Replace("\"", ""));
+
                 if (key == null)
                 {
                     Error = "No matching key found.";
