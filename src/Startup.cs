@@ -34,7 +34,7 @@ namespace AdvantageTool
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<StateDbContext>(options =>
                 options.UseInMemoryDatabase("States"));
